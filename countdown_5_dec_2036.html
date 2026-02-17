@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>العد التنازلي إلى 5 كانون الأول 2036</title>
+<style>
+body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+.container {
+    background: rgba(0,0,0,0.4);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+#days {
+    font-size: 80px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+.small {
+    font-size: 22px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="small">الوقت المتبقي حتى</div>
+    <div class="small">5 كانون الأول 2036</div>
+    <div id="days">...</div>
+    <div class="small">يوماً</div>
+</div>
+
+<script>
+function updateCountdown() {
+    const target = new Date("2036-12-05T00:00:00");
+    const now = new Date();
+    const diff = target - now;
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("days").innerText = days > 0 ? days : 0;
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000 * 60 * 60); // update every hour
+</script>
+
+</body>
+</html>
